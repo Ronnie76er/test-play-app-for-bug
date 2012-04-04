@@ -13,11 +13,11 @@ public class Model1 extends Model{
     public Long id;
     
     
-    private static void doSomething(){
-        List<Model2> modelTwo = Model2.doSomething();
+    private static void doSomething(Long id){
+        Model2 modelTwo = Model2.findModelTwo(id);
 
         // Without the following lines it compiles. With it, it doesn't
-        for (Model1 modelOne : modelTwo.get(0).modelOnes) {
+        for (Model1 modelOne : modelTwo.modelOnes) {
             System.out.println("modelOne.id = " + modelOne.id);
         }
     }

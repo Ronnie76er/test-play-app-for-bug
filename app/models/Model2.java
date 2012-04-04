@@ -19,9 +19,9 @@ public class Model2 extends Model{
 
     private static Finder<Long, Model2> find = new Finder<Long, Model2>(Long.class, Model2.class);
 
-    public static List<Model2> doSomething() {
+    public static Model2 findModelTwo(Long id) {
 
-        return find.fetch("modelOnes").findList();
+        return find.fetch("modelOnes").where().idEq(id).findUnique();
     }
 
 
