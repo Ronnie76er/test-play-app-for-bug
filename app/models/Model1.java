@@ -17,9 +17,9 @@ public class Model1 extends Model{
         Model2 modelTwo = Model2.findModelTwo(id);
 
         // Without the following lines it compiles. With it, it doesn't
-//        for (Model1 modelOne : modelTwo.modelOnes) {
-//            System.out.println("modelOne.id = " + modelOne.id);
-//        }
+        for (Model1 modelOne : modelTwo.modelOnes) {
+            System.out.println("modelOne.id = " + modelOne.id);
+        }
     }
     
 }

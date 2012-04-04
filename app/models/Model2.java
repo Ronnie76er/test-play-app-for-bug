@@ -20,13 +20,11 @@ public class Model2 extends Model{
 
 
         Model2 unique = find.fetch("modelOnes").where().idEq(id).findUnique();
-        //Without the following lines it compiles.  With it, it doesn't
-//        for (Model1 modelOne : unique.modelOnes) {
-//            System.out.println("modelOne.id = " + modelOne.id);
-//        }
+//        Without the following lines it compiles.  With it, it doesn't
+        for (Model1 modelOne : unique.modelOnes) {
+            System.out.println("modelOne.id = " + modelOne.id);
+        }
 
         return unique;
     }
-
-
 }
