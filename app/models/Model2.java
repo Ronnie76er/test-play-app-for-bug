@@ -21,7 +21,7 @@ public class Model2 extends Model{
 
     public static Model2 findModelTwo(Long id) {
 
-        return find.fetch("modelOnes").where().idEq(id).findUnique();
+        return find.where().idEq(id).findUnique();
     }
 
 
