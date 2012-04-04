@@ -17,8 +17,6 @@ public class Model2 extends Model{
     private static Finder<Long, Model2> find = new Finder<Long, Model2>(Long.class, Model2.class);
 
     public static Model2 findModelTwo(Long id) {
-
-
         Model2 unique = find.fetch("modelOnes").where().idEq(id).findUnique();
 //        Without the following lines it compiles.  With it, it doesn't
         for (Model1 modelOne : unique.modelOnes) {
@@ -26,5 +24,9 @@ public class Model2 extends Model{
         }
 
         return unique;
+    }
+
+    public List<Model1> getModelOnes(){
+        return modelOnes;
     }
 }
