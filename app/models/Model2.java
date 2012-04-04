@@ -2,10 +2,7 @@ package models;
 
 import play.db.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,14 +11,21 @@ public class Model2 extends Model{
     @Id
     public Long id;
 
-    @ManyToMany
+    @OneToMany
     public List<Model1> modelOnes;
 
     private static Finder<Long, Model2> find = new Finder<Long, Model2>(Long.class, Model2.class);
 
     public static Model2 findModelTwo(Long id) {
 
-        return find.where().idEq(id).findUnique();
+
+        Model2 unique = find.fetch("modelOnes").where().idEq(id).findUnique();
+        //Without the following lines it compiles.  With it, it doesn't
+//        for (Model1 modelOne : unique.modelOnes) {
+//            System.out.println("modelOne.id = " + modelOne.id);
+//        }
+
+        return unique;
     }
 
 
